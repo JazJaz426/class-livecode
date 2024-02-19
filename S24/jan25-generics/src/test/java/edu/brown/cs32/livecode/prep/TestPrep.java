@@ -19,7 +19,11 @@ public class TestPrep {
     public void emptyListStudent() {
         Student student = new Student(List.of());
         // Is this _really_ the behavior we want? Should we be testing == null?
-        assertNull(student.mostCommonTodoItem());
+        assertThrows(
+            IllegalArgumentException.class,
+            student::mostCommonTodoItem,
+            "expected to throw illegal argument exception but not."
+        );
     }
 
     @Test

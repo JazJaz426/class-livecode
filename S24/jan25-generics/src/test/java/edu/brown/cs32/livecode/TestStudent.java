@@ -36,7 +36,11 @@ public class TestStudent {
     public void emptyList() {
         Student<String> student = new Student<>(List.of());
         // EXERCISE: Is this _really_ the behavior we want? Should we be testing == null?
-        assertNull(student.mostCommonTodoItem()); // not anymore!
+        assertThrows(
+            IllegalArgumentException.class,
+            student::mostCommonTodoItem,
+            "expected to throw illegal argument exception but not."
+        );
     }
 
 }
